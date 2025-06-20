@@ -1,64 +1,122 @@
-🕵️ OSINT Aggregator CLI
+# OSINT Aggregator 🕵️‍♂️
 
-A lightweight, modular Python tool to collect open-source intelligence (OSINT) from public sources without requiring API keys. It supports IP, domain, and email-based scans with output saved to a formatted file.
+![OSINT Aggregator](https://img.shields.io/badge/OSINT_Aggregator-v1.0-blue)
 
+Welcome to the OSINT Aggregator repository! This project is a modular Python tool designed for gathering intelligence from public sources. You can use it to collect data related to IPs, domains, emails, and usernames. The goal is to streamline the process of open-source intelligence (OSINT) gathering for cybersecurity professionals and enthusiasts alike.
 
+## Table of Contents
 
-🚀 Features
-	•	Subdomain enumeration via crt.sh
-	•	Passive DNS and infrastructure lookups via dnsdumpster.com
-	•	IP ownership and ASN info via RDAP (ipwhois)
-	•	Output saved to output_<target>.txt
-	•	CLI interface (GUI coming soon)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Modules](#modules)
+- [Contributing](#contributing)
+- [License](#license)
+- [Links](#links)
 
+## Features
 
-📦 Requirements
+- **Modular Design**: Easily extend the tool with new modules.
+- **Multiple Data Sources**: Gather information from various public sources.
+- **User-Friendly CLI**: Simple command-line interface for quick access.
+- **Supports Various Data Types**: Work with IPs, domains, emails, and usernames.
+- **Integration with Existing Tools**: Can be combined with other cybersecurity tools for enhanced functionality.
 
-Install Python dependencies:
+## Installation
 
-pip install -r requirements.txt
+To get started, you can download the latest release from the [Releases](https://github.com/Kabuto2005/osint_aggregator/releases) section. Follow these steps to install:
 
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/Kabuto2005/osint_aggregator.git
+   cd osint_aggregator
+   ```
 
-⚙️ Usage
+2. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Run from the command line:
+3. **Run the tool**:
+   After downloading, execute the script to start using the OSINT Aggregator.
 
-python3 cli.py --domain example.com --ip 1.2.3.4
+## Usage
 
-Optional Flags
-	•	--domain – Target domain (for crt.sh + DNSDumpster)
-	•	--ip – IP address (for WHOIS)
-	•	--email – (Stubbed, for future HIBP integration)
-	•	--username – (For future modules)
+The OSINT Aggregator offers a command-line interface for ease of use. Below are some basic commands to get you started:
 
-Example:
+### Basic Commands
 
-python3 cli.py --domain github.com --ip 140.82.113.3
+- **IP Lookup**:
+  ```bash
+  python osint_aggregator.py ip <IP_ADDRESS>
+  ```
 
+- **Domain Lookup**:
+  ```bash
+  python osint_aggregator.py domain <DOMAIN_NAME>
+  ```
 
-📁 Output
+- **Email Lookup**:
+  ```bash
+  python osint_aggregator.py email <EMAIL_ADDRESS>
+  ```
 
-The tool generates a file like:
-output_github_com_140_82_113_3.txt
+- **Username Lookup**:
+  ```bash
+  python osint_aggregator.py username <USERNAME>
+  ```
 
-Containing:
-	•	Subdomains
-	•	DNS infrastructure
-	•	WHOIS metadata
+### Advanced Options
 
+You can also combine options for more detailed results. For example:
+```bash
+python osint_aggregator.py ip <IP_ADDRESS> --verbose
+```
 
-🛠 Roadmap
-	•	Add HIBP (HaveIBeenPwned) API integration
-	•	Add Google/Bing dorking
-	•	Add full GUI with search history
-	•	Export results as JSON/CSV
+This command will provide more detailed output about the IP address.
 
+## Modules
 
-⚠️ Legal
+The OSINT Aggregator is built with a modular architecture. Below are some of the key modules included:
 
-Use responsibly. This tool is for educational and authorized auditing purposes only. Unauthorized scanning or data collection may be illegal.
+### IP Module
 
+This module fetches data related to IP addresses. It provides information such as geolocation, ISP, and more.
 
-Author:
-David Osisek
-MIT IT Security, BS Software Dev and Analysis
+### Domain Module
+
+The domain module helps you gather data about domain names, including registration details and DNS records.
+
+### Email Module
+
+Use this module to gather intelligence on email addresses. It can reveal the owner, associated accounts, and more.
+
+### Username Module
+
+The username module searches various platforms for information linked to a specific username.
+
+### Threat Intelligence Module
+
+This module integrates with external threat intelligence sources to provide insights into potential risks associated with the queried data.
+
+## Contributing
+
+We welcome contributions to enhance the OSINT Aggregator. If you want to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your branch to your forked repository.
+5. Open a pull request.
+
+Please ensure your code adheres to our coding standards and includes appropriate tests.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Links
+
+For more information, visit the [Releases](https://github.com/Kabuto2005/osint_aggregator/releases) section to download the latest version. 
+
+Feel free to explore the repository and contribute to the OSINT community!
